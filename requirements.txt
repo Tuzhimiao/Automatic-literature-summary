@@ -1,0 +1,27 @@
+# 核心：API、检索、PDF、配置与日志
+openai>=1.0.0  # DeepSeek/Kimi/Qwen 等 OpenAI 兼容接口
+arxiv>=2.1.0
+requests>=2.31.0
+beautifulsoup4>=4.12.0  # IEEE Xplore 网页解析
+PyPDF2>=3.0.0  # PDF 文本提取
+pyyaml>=6.0.0
+loguru>=0.7.0
+
+# Web
+flask>=3.0.0
+werkzeug>=3.0.0
+
+# 数值与文本（一致性检查、可视化中的 TF-IDF 等）
+numpy>=1.24.0
+scikit-learn>=1.3.0
+nltk>=3.8.0
+
+# 报告与图表（HTML 中 Markdown 为自实现转换，不依赖 PyPI 的 markdown 包）
+reportlab>=4.0.0
+matplotlib>=3.7.0
+networkx>=3.1.0
+pyvis>=0.3.2  # 交互式网络图
+wordcloud>=1.9.0  # 词云（通常随 wordcloud 安装 Pillow）
+
+# 可选：CLI 一致性模块中 sentence-transformers 路径；需 PyTorch，体积较大
+# sentence-transformers>=2.2.0

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动化研究现状收集与置信度评估系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <div>
+                    <h1>📊 自动化研究现状分析系统</h1>
+                    <p class="subtitle">智能论文检索 · AI分析 · 置信度评估</p>
+                </div>
+                <a href="/history" class="btn btn-secondary" style="margin-left: auto;">📚 历史记录</a>
+            </div>
+        </header>
+
+        <!-- 主要内容区域 -->
+        <main class="main-content">
+            <!-- 输入区域 -->
+            <section class="input-section">
+                <div class="card">
+                    <h2>🔍 开始分析</h2>
+                    <form id="analyzeForm">
+                        <div class="form-group">
+                            <label>总结模式（可多选）</label>
+                            <div style="display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap;">
+                                <label class="source-checkbox" style="flex: 1; min-width: 200px; padding: 12px; border: 2px solid var(--border-color); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s;">
+                                    <input type="checkbox" name="source_type" value="network" checked id="sourceNetwork" style="margin-right: 8px;">
+                                    <span>🌐 网络检索</span>
+                                </label>
+                                <label class="source-checkbox" style="flex: 1; min-width: 200px; padding: 12px; border: 2px solid var(--border-color); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s;">
+                                    <input type="checkbox" name="source_type" value="upload" id="sourceUpload" style="margin-right: 8px;">
+                                    <span>📄 上传本地PDF分析</span>
+                                </label>
+                                <label class="source-checkbox" style="flex: 1; min-width: 200px; padding: 12px; border: 2px solid var(--border-color); border-radius: var(--radius-md); cursor: pointer; transition: all 0.2s;">
+                                    <input type="checkbox" name="source_type" value="pdf_association" id="sourcePdfAssociation" style="margin-right: 8px;">
+                                    <span>🔗 上传PDF联想分析</span>
+                                </label>
+                            </div>
+                            
+                            <!-- 研究主题（仅网络检索模式需要） -->
+                            <div id="topicGroup" style="margin-top: 16px; padding: 12px; background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--border-color); display: none;">
+                                <label for="topic" style="display: block; margin-bottom: 8px; font-weight: 500;">研究主题</label>
+                                <div style="display: flex; gap: 12px; align-items: flex-start;">
+                                    <input 
+                                        type="text" 
+                                        id="topic" 
+                                        name="topic" 
+                                        placeholder="例如：machine learning, 深度学习, transformer..."
+                                        style="flex: 1;"
+                                    >
+                                    <label class="source-checkbox" style="margin: 0; padding: 8px 12px; white-space: nowrap; cursor: pointer; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-color);">
+                                        <input type="checkbox" id="useAiKeywords" name="useAiKeywords" checked style="margin-right: 6px;">
+                                        <span>🤖 AI扩展关键词</span>
+                                    </label>
+                                </div>
+                                <small style="display: block; margin-top: 8px; color: var(--text-secondary);">输入你想要分析的研究主题关键词。启用AI扩展将生成多个搜索关键词，禁用则直接翻译为英文搜索</small>
+                            </div>
+                            
+                            <!-- 网络检索来源选择 -->
+                            <div id="networkSourceDetails" style="margin-top: 12px; padding: 12px; background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500;">选择检索来源:</label>
+                                <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                                    <label class="source-checkbox" style="padding: 8px 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); cursor: pointer;">
+                                        <input type="checkbox" name="sources" value="arxiv" checked id="arxivCheck" style="margin-right: 6px;">
+                                        <span>📄 arXiv</span>
+                                    </label>
+                                    <label class="source-checkbox" style="padding: 8px 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); cursor: pointer;">
+                                        <input type="checkbox" name="sources" value="ieee_xplore" id="ieeeXploreCheck" style="margin-right: 6px;">
+                                        <span>🔬 IEEE Xplore</span>
+                                    </label>
+                                    <label class="source-checkbox" style="padding: 8px 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); cursor: pointer;">
+                                        <input type="checkbox" name="sources" value="pubmed" id="pubmedCheck" style="margin-right: 6px;">
+                                        <span>🧬 PubMed</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- 网络检索设置 -->
+                            <div id="networkSourceSettings" style="margin-top: 12px;">
+                                <!-- arXiv设置 -->
+                                <div id="arxivSettings" style="margin-bottom: 16px; padding: 12px; background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                                    <div class="source-count-input" style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                        <label>arXiv数量:</label>
+                                        <input type="number" name="arxiv_count" min="1" max="3000" value="20" class="count-input" style="width: 100px;">
+                                        <label class="fulltext-checkbox" style="margin: 0;">
+                                            <input type="checkbox" name="arxiv_fulltext" id="arxivFulltext" checked>
+                                            <span>获取全文（PDF）<small style="color: var(--text-secondary); margin-left: 4px;">（会导致速度变慢）</small></span>
+                                        </label>
+                                    </div>
+                                    <small style="display: block; margin-top: 8px; color: var(--text-secondary);">
+                                        💡 提示：arXiv API理论上支持最多3000条结果。数量越大，检索时间越长。建议不超过500条以获得最佳性能。
+                                    </small>
+                                </div>
+                                
+                                <!-- IEEE Xplore设置 -->
+                                <div id="ieeeXploreSettings" style="margin-bottom: 16px; padding: 12px; background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--border-color); display: none;">
+                                    <div class="source-count-input" style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                            <label>IEEE Xplore数量:</label>
+                            <input type="number" name="ieee_xplore_count" min="1" max="100" value="20" class="count-input" style="width: 80px;">
+                            <label class="fulltext-checkbox" style="margin: 0;">
+                                <input type="checkbox" name="ieee_xplore_fulltext" id="ieeeXploreFulltext" checked>
+                                <span>获取全文<small style="color: var(--text-secondary); margin-left: 4px;">（会导致速度变慢）</small></span>
+                            </label>
+                                    </div>
+                                    <small style="display: block; margin-top: 8px; color: var(--text-secondary);">
+                                        💡 提示：IEEE Xplore是IEEE数字图书馆，提供高质量的IEEE期刊和会议论文。支持API和网页爬虫两种方式，如果没有API密钥将自动使用网页爬虫。启用"获取全文"将访问每篇论文的详情页提取全文内容，分析更准确但速度较慢。
+                                    </small>
+                                </div>
+                                
+                                <!-- PubMed 设置 -->
+                                <div id="pubmedSettings" style="margin-bottom: 16px; padding: 12px; background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--border-color); display: none;">
+                                    <div class="source-count-input" style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                        <label>PubMed 数量:</label>
+                                        <input type="number" name="pubmed_count" min="1" max="200" value="20" class="count-input" style="width: 80px;">
+                                    </div>
+                                    <small style="display: block; margin-top: 8px; color: var(--text-secondary);">
+                                        💡 通过 NCBI E-utilities 检索 <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">PubMed</a> 生物医学文献。可在 config.yaml 的 pubmed 段填写 email 与可选 api_key 以提高访问速率。
+                                    </small>
+                                </div>
+                                
+                                <small>从网络检索论文。启用AI扩展关键词将生成多个搜索关键词，禁用则直接翻译为英文搜索</small>
+                            </div>
+                            
+                            <!-- PDF上传设置 -->
+                            <div id="uploadSourceSettings" style="margin-top: 16px; display: none;">
+                                <div class="pdf-upload-area" id="pdfUploadArea">
+                                    <input type="file" id="pdfFileInput" accept=".pdf" multiple>
+                                    <div class="pdf-upload-icon">📄</div>
+                                    <div class="pdf-upload-text">拖拽PDF文件到此处，或点击选择文件</div>
+                                    <div class="pdf-upload-hint">支持多文件上传（.pdf格式）</div>
+                                </div>
+                                <div class="pdf-file-list" id="pdfFileList" style="display: none;"></div>
+                                <small>上传本地PDF论文文件进行分析。系统将自动提取论文信息（标题、作者、摘要等）。如果与网络检索结果重复，将优先保留上传的论文。</small>
+                            </div>
+                            
+                            <!-- PDF联想分析设置 -->
+                            <div id="pdfAssociationSettings" style="margin-top: 16px; display: none;">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                                    <!-- 左侧：PDF上传 -->
+                                    <div>
+                                        <h4 style="margin-bottom: 12px; color: var(--primary-color);">📄 上传PDF文件</h4>
+                                        <div class="pdf-upload-area" id="pdfAssociationUploadArea" style="min-height: 150px;">
+                                            <input type="file" id="pdfAssociationFileInput" accept=".pdf">
+                                            <div class="pdf-upload-icon">📄</div>
+                                            <div class="pdf-upload-text">拖拽PDF文件到此处，或点击选择文件</div>
+                                            <div class="pdf-upload-hint">仅支持单个PDF文件</div>
+                                        </div>
+                                        <div id="pdfAssociationFileInfo" style="margin-top: 8px; padding: 8px; background: var(--bg-secondary); border-radius: var(--radius-sm); display: none;"></div>
+                                    </div>
+                                    
+                                    <!-- 右侧：拓展搜索设置 -->
+                                    <div>
+                                        <h4 style="margin-bottom: 12px; color: var(--primary-color);">🔍 拓展搜索设置</h4>
+                                        <div style="padding: 12px; background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                                            <div style="margin-bottom: 12px;">
+                                                <small style="display: block; color: var(--text-secondary); font-size: 12px;">💡 大模型将从引用文献中识别出10篇重点文献进行搜索</small>
+                                            </div>
+                                            
+                                            <div style="margin-bottom: 12px;">
+                                                <label style="display: block; margin-bottom: 4px; font-weight: 500;">选择拓展搜索来源:</label>
+                                                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                                    <label class="source-checkbox" style="padding: 6px 10px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); cursor: pointer;">
+                                                        <input type="checkbox" name="association_sources" value="arxiv" checked id="associationArxivCheck" style="margin-right: 4px;">
+                                                        <span>arXiv</span>
+                                                    </label>
+                                                    <label class="source-checkbox" style="padding: 6px 10px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); cursor: pointer;">
+                                                        <input type="checkbox" name="association_sources" value="ieee_xplore" id="associationIeeeCheck" style="margin-right: 4px;">
+                                                        <span>IEEE</span>
+                                                    </label>
+                                                    <label class="source-checkbox" style="padding: 6px 10px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); cursor: pointer;">
+                                                        <input type="checkbox" name="association_sources" value="pubmed" id="associationPubmedCheck" style="margin-right: 4px;">
+                                                        <span>PubMed</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div style="margin-bottom: 12px;">
+                                                <label for="associationStartYear" style="display: block; margin-bottom: 4px; font-weight: 500;">起始年份:</label>
+                                                <input type="number" id="associationStartYear" name="associationStartYear" min="2000" max="2030" value="2023" class="count-input" style="width: 100%;">
+                                            </div>
+                                            
+                                            <div style="margin-bottom: 12px;">
+                                                <label for="associationEndYear" style="display: block; margin-bottom: 4px; font-weight: 500;">结束年份:</label>
+                                                <select id="associationEndYear" name="associationEndYear" class="form-select" style="width: 100%;">
+                                                    <option value="latest" selected>最新</option>
+                                                    <option value="2026">2026</option>
+                                                    <option value="2025">2025</option>
+                                                    <option value="2024">2024</option>
+                                                    <option value="2023">2023</option>
+                                                    <option value="2022">2022</option>
+                                                </select>
+                                            </div>
+                                            
+                                                <div style="margin-bottom: 12px;">
+                                                <label style="display: block; margin-bottom: 4px; font-weight: 500;">各源数量设置:</label>
+                                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                                                    <div id="associationArxivCountDiv">
+                                                        <label style="font-size: 12px;">arXiv:</label>
+                                                        <input type="number" name="association_arxiv_count" min="1" max="100" value="10" class="count-input" style="width: 100%;">
+                                                    </div>
+                                                    <div id="associationIeeeCountDiv" style="display: none;">
+                                                        <label style="font-size: 12px;">IEEE:</label>
+                                                        <input type="number" name="association_ieee_count" min="1" max="50" value="10" class="count-input" style="width: 100%;">
+                                                    </div>
+                                                    <div id="associationPubmedCountDiv" style="display: none;">
+                                                        <label style="font-size: 12px;">PubMed:</label>
+                                                        <input type="number" name="association_pubmed_count" min="1" max="100" value="10" class="count-input" style="width: 100%;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <small style="display: block; margin-top: 12px; color: var(--text-secondary);">
+                                    💡 提示：上传PDF后，系统将使用大模型提取引用文献中的重点文献，并按优先级在 arXiv、IEEE、PubMed 中搜索（要求标题和作者80%相似度）。同时，系统会根据PDF内容生成5个拓展关键词，在选定的网络源中搜索相关论文。所有找到的论文将进入分析阶段。
+                                </small>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group" id="yearRangeGroup">
+                            <label>年份范围与排序设置</label>
+                            <div class="date-sort-settings" style="display: flex; gap: 20px; flex-wrap: wrap; padding: 16px; background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                                <div style="flex: 1; min-width: 150px;">
+                                    <label for="startYear" style="display: block; margin-bottom: 8px; font-weight: 500; font-size: 14px;">起始年份:</label>
+                                    <input type="number" id="startYear" name="startYear" min="2000" max="2030" value="2023" class="count-input" style="width: 100%;">
+                                </div>
+                                <div style="flex: 1; min-width: 150px;">
+                                    <label for="endYear" style="display: block; margin-bottom: 8px; font-weight: 500; font-size: 14px;">结束年份:</label>
+                                    <select id="endYear" name="endYear" class="form-select" style="width: 100%;">
+                                        <option value="latest" selected>最新</option>
+                                        <option value="2026">2026</option>
+                                        <option value="2025">2025</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2022">2022</option>
+                                    </select>
+                                </div>
+                                <div style="flex: 1; min-width: 150px;">
+                                    <label for="sortBy" style="display: block; margin-bottom: 8px; font-weight: 500; font-size: 14px;">排序方式:</label>
+                                    <select id="sortBy" name="sortBy" class="form-select" style="width: 100%;">
+                                        <option value="relevance" selected>相关性</option>
+                                        <option value="citation">引用量</option>
+                                        <option value="date_desc">日期（最新优先）</option>
+                                        <option value="date_asc">日期（最早优先）</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <small>设置搜索的年份范围和排序方式</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="paperAnalysisModel">论文详细分析模型</label>
+                            <select id="paperAnalysisModel" name="paperAnalysisModel" class="form-select">
+                                <option value="deepseek-chat">🤖 DeepSeek Chat（标准版，快速响应）</option>
+                                <option value="deepseek-reasoner">🧠 DeepSeek Reasoner（推理版，复杂推理）</option>
+                                <option value="kimi-8k">🌙 Kimi 8K（Moonshot AI，8K上下文）</option>
+                                <option value="kimi-32k">🌙 Kimi 32K（Moonshot AI，32K上下文，推荐）</option>
+                                <option value="kimi-128k">🌙 Kimi 128K（Moonshot AI，128K上下文，长文本）</option>
+                                <option value="qwen-turbo">🌟 Qwen Turbo（通义千问，快速响应）</option>
+                                <option value="qwen-plus">🌟 Qwen Plus（通义千问，平衡性能）</option>
+                                <option value="qwen-max">🌟 Qwen Max（通义千问，最强性能，推荐）</option>
+                                <option value="qwen-max-longcontext">🌟 Qwen Max LongContext（通义千问，超长上下文）</option>
+                            </select>
+                            <small>选择用于分析每篇论文详细信息的模型（回答10个问题）</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reviewModel">综述生成模型</label>
+                            <select id="reviewModel" name="reviewModel" class="form-select">
+                                <option value="deepseek-chat">🤖 DeepSeek Chat（标准版，快速响应）</option>
+                                <option value="deepseek-reasoner">🧠 DeepSeek Reasoner（推理版，复杂推理）</option>
+                                <option value="kimi-8k">🌙 Kimi 8K（Moonshot AI，8K上下文）</option>
+                                <option value="kimi-32k">🌙 Kimi 32K（Moonshot AI，32K上下文，推荐）</option>
+                                <option value="kimi-128k">🌙 Kimi 128K（Moonshot AI，128K上下文，长文本）</option>
+                                <option value="qwen-turbo">🌟 Qwen Turbo（通义千问，快速响应）</option>
+                                <option value="qwen-plus">🌟 Qwen Plus（通义千问，平衡性能）</option>
+                                <option value="qwen-max">🌟 Qwen Max（通义千问，最强性能，推荐）</option>
+                                <option value="qwen-max-longcontext">🌟 Qwen Max LongContext（通义千问，超长上下文）</option>
+                            </select>
+                            <small>选择用于生成综述报告的模型（综合所有论文信息）</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reviewDetailLevel">综述详细程度</label>
+                            <select id="reviewDetailLevel" name="reviewDetailLevel" class="form-select">
+                                <option value="200">📝 简洁版（每部分200字，快速生成）</option>
+                                <option value="500" selected>📄 标准版（每部分500字，推荐）</option>
+                                <option value="800">📚 详细版（每部分800字，内容详尽）</option>
+                            </select>
+                            <small>选择综述每个部分的详细程度，影响生成时间和内容深度</small>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" id="analyzeBtn">
+                            <span class="btn-text">检索论文</span>
+                            <span class="btn-loading" style="display: none;">
+                                <span class="spinner"></span> 检索中...
+                            </span>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- 状态提示 -->
+            <div id="statusMessage" class="status-message" style="display: none;"></div>
+
+            <!-- 结果展示区域 -->
+            <section id="resultsSection" class="results-section" style="display: none;">
+                <div class="card">
+                    <h2>📈 分析结果</h2>
+                    
+                    <!-- 关键指标 -->
+                    <div class="metrics-grid" id="metricsGrid"></div>
+                    
+                    <!-- 执行摘要 -->
+                    <div class="result-box">
+                        <h3>📝 执行摘要</h3>
+                        <div id="summary" class="summary-content"></div>
+                    </div>
+                    
+                    <!-- 关键发现 -->
+                    <div class="result-box">
+                        <h3>🔍 关键发现</h3>
+                        <ul id="keyFindings" class="findings-list"></ul>
+                    </div>
+                    
+                    <!-- 研究趋势 -->
+                    <div class="result-box">
+                        <h3>📈 研究趋势</h3>
+                        <ul id="researchTrends" class="trends-list"></ul>
+                    </div>
+                    
+                    <!-- 论文列表 -->
+                    <div class="result-box">
+                        <h3>📚 相关论文</h3>
+                        <div id="papersList" class="papers-list"></div>
+                    </div>
+                    
+                    <!-- 报告下载 -->
+                    <div class="result-box">
+                        <h3>📥 下载报告</h3>
+                        <div class="download-buttons" id="downloadButtons"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>自动化研究现状收集与置信度评估系统 | 基于AI的智能研究分析工具</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+

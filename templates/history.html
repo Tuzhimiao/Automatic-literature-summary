@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>历史记录 - 自动化研究现状分析系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        .history-item {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .history-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .history-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        .history-item-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .history-item-meta {
+            display: flex;
+            gap: 16px;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+        .history-item-actions {
+            display: flex;
+            gap: 8px;
+        }
+        .btn-delete {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        .btn-delete:hover {
+            background: #c82333;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+        .empty-state-icon {
+            font-size: 4em;
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <h1>📚 历史记录</h1>
+            <p class="subtitle">查看和管理您的分析历史</p>
+        </header>
+
+        <!-- 导航栏 -->
+        <nav style="margin-bottom: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="/" class="btn btn-secondary">🏠 首页</a>
+            <a href="/papers" class="btn btn-secondary">📄 论文列表</a>
+            <a href="/history" class="btn btn-primary">📚 历史记录</a>
+        </nav>
+
+        <!-- 主要内容区域 -->
+        <main class="main-content">
+            <div class="card">
+                <div class="history-header">
+                    <h2>分析历史</h2>
+                    <button class="btn btn-primary" onclick="loadHistory()">🔄 刷新</button>
+                </div>
+                
+                <div id="historyList">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">⏳</div>
+                        <p>正在加载历史记录...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // 加载历史记录列表
+        function loadHistory() {
+            const historyList = document.getElementById('historyList');
+            historyList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">⏳</div><p>正在加载历史记录...</p></div>';
+            
+            fetch('/api/history/list?limit=100')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success && data.history.length > 0) {
+                        displayHistoryList(data.history);
+                    } else {
+                        historyList.innerHTML = `
+                            <div class="empty-state">
+                                <div class="empty-state-icon">📭</div>
+                                <p>暂无历史记录</p>
+                                <p style="margin-top: 12px;">
+                                    <a href="/" class="btn btn-primary">开始新的分析</a>
+                                </p>
+                            </div>
+                        `;
+                    }
+                })
+                .catch(error => {
+                    console.error('加载历史记录失败:', error);
+                    historyList.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">❌</div>
+                            <p>加载历史记录失败: ${error.message}</p>
+                            <button class="btn btn-primary" onclick="loadHistory()" style="margin-top: 12px;">重试</button>
+                        </div>
+                    `;
+                });
+        }
+        
+        function displayHistoryList(history) {
+            const historyList = document.getElementById('historyList');
+            historyList.innerHTML = history.map(item => {
+                const date = new Date(item.created_at);
+                const dateStr = date.toLocaleString('zh-CN', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                
+                return `
+                    <div class="history-item" onclick="viewHistory('${item.id}')">
+                        <div class="history-item-header">
+                            <div style="flex: 1;">
+                                <div class="history-item-title">${escapeHtml(item.title)}</div>
+                                <div class="history-item-meta">
+                                    <span>📊 主题: ${escapeHtml(item.topic)}</span>
+                                    <span>📄 论文数: ${item.papers_count}</span>
+                                    <span>🕒 ${dateStr}</span>
+                                </div>
+                            </div>
+                            <div class="history-item-actions" onclick="event.stopPropagation();">
+                                <button class="btn-delete" onclick="deleteHistory('${item.id}', event)">🗑️ 删除</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function viewHistory(recordId) {
+            window.location.href = `/history/${recordId}`;
+        }
+        
+        function deleteHistory(recordId, event) {
+            event.stopPropagation();
+            if (!confirm('确定要删除这条历史记录吗？')) {
+                return;
+            }
+            
+            fetch(`/api/history/${recordId}`, {
+                method: 'DELETE'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    loadHistory();
+                } else {
+                    alert('删除失败: ' + (data.error || '未知错误'));
+                }
+            })
+            .catch(error => {
+                console.error('删除失败:', error);
+                alert('删除失败: ' + error.message);
+            });
+        }
+        
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        // 页面加载时自动加载历史记录
+        document.addEventListener('DOMContentLoaded', function() {
+            loadHistory();
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+

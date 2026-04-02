@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>检索到的论文 - 自动化研究现状分析系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
+                <div>
+                    <h1>📚 检索到的论文</h1>
+                    <p class="subtitle" id="topicSubtitle">研究主题：<span id="topicName"></span></p>
+                </div>
+                <a href="/history" class="btn btn-secondary" style="margin-left: auto;">📚 历史记录</a>
+            </div>
+        </header>
+
+        <!-- 主要内容区域 -->
+        <main class="main-content">
+            <!-- 论文统计（动态生成） -->
+            <section class="stats-section">
+                <div class="card">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value" id="totalPapers">0</div>
+                            <div class="stat-label">总论文数</div>
+                        </div>
+                        <!-- 其他来源统计将动态添加 -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- 操作按钮（移到上面） -->
+            <section class="actions-section">
+                <div class="card">
+                    <div class="action-buttons">
+                        <button class="btn btn-secondary" onclick="window.location.href='/'">
+                            ← 返回重新检索
+                        </button>
+                        <div class="analysis-options">
+                            <label for="batchSize" class="option-label">
+                                <span class="label-text">📚 批量阅读大小：</span>
+                                <select id="batchSize" class="option-select">
+                                    <option value="1">1篇/次（逐篇分析，最准确）</option>
+                                    <option value="2">2篇/次（较快）</option>
+                                    <option value="3">3篇/次（快速）</option>
+                                    <option value="5">5篇/次（最快，适合大量论文）</option>
+                                </select>
+                            </label>
+                            <div class="option-hint">
+                                <small>💡 提示：批量大小越大，分析速度越快，但单次API调用消耗的token越多</small>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" id="analyzeBtn">
+                            <span class="btn-text">开始AI分析</span>
+                            <span class="btn-loading" style="display: none;">
+                                <span class="spinner"></span> 分析中...
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 分析进度条（初始隐藏） -->
+            <section id="progressSection" class="progress-section" style="display: none;">
+                <div class="card">
+                    <h3>📊 分析进度</h3>
+                    <div class="progress-container">
+                        <div class="progress-bar-wrapper">
+                            <div class="progress-bar" id="progressBar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <div class="progress-text" id="progressText">0%</div>
+                        </div>
+                        <div class="progress-steps" id="progressSteps">
+                            <div class="progress-step" data-step="1">
+                                <div class="step-icon">⏳</div>
+                                <div class="step-label">准备分析</div>
+                            </div>
+                            <div class="progress-step" data-step="2">
+                                <div class="step-icon">🤖</div>
+                                <div class="step-label">AI分析中</div>
+                            </div>
+                            <div class="progress-step" data-step="3">
+                                <div class="step-icon">✅</div>
+                                <div class="step-label">置信度评估</div>
+                            </div>
+                            <div class="progress-step" data-step="4">
+                                <div class="step-icon">📊</div>
+                                <div class="step-label">生成报告</div>
+                            </div>
+                        </div>
+                        <div class="progress-message" id="progressMessage">正在初始化...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 论文列表 -->
+            <section class="papers-section">
+                <div class="card">
+                    <h2>📄 论文列表</h2>
+                    <div class="papers-list-scrollable">
+                        <div id="papersList" class="papers-list-detailed"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 状态提示 -->
+            <div id="statusMessage" class="status-message" style="display: none;"></div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>自动化研究现状收集与置信度评估系统 | 基于AI的智能研究分析工具</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/papers.js') }}"></script>
+</body>
+</html>
+

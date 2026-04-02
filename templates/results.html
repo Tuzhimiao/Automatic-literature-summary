@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分析结果 - 自动化研究现状分析系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Markdown渲染库 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap;">
+                <div>
+                    <h1>📊 分析结果</h1>
+                    <p class="subtitle">研究主题：<span id="topicName"></span></p>
+                </div>
+                <a href="/history" class="btn btn-secondary" style="margin-left: auto;">📚 历史记录</a>
+            </div>
+        </header>
+
+        <!-- 主要内容区域 -->
+        <main class="main-content">
+            <!-- 关键指标 -->
+            <section class="metrics-section">
+                <div class="card">
+                    <h2>📈 关键指标</h2>
+                    <div class="metrics-grid" id="metricsGrid"></div>
+                </div>
+            </section>
+
+            <!-- 置信度诊断 -->
+            <section id="diagnosticSection" class="diagnostic-section" style="display: none;">
+                <div class="card">
+                    <h2>🔍 置信度诊断</h2>
+                    <div id="diagnosticContent"></div>
+                </div>
+            </section>
+
+            <!-- 综述报告 -->
+            <section class="summary-section">
+                <div class="card">
+                    <h2>📝 综述报告</h2>
+                    <div id="summary" class="summary-content"></div>
+                </div>
+            </section>
+
+            <!-- 关键发现 -->
+            <section class="findings-section">
+                <div class="card">
+                    <h2>🔍 关键发现</h2>
+                    <ul id="keyFindings" class="findings-list"></ul>
+                </div>
+            </section>
+
+            <!-- 研究趋势 -->
+            <section class="trends-section">
+                <div class="card">
+                    <h2>📈 研究趋势</h2>
+                    <ul id="researchTrends" class="trends-list"></ul>
+                </div>
+            </section>
+
+            <!-- 可视化图表 -->
+            <section class="visualization-section">
+                <!-- 时间轴图 -->
+                <div class="card" id="timelineCard" style="display: none;">
+                    <div class="visualization-header">
+                        <h2>📅 研究时间轴</h2>
+                        <a id="timelineDownload" href="#" download class="download-btn-small">
+                            ⬇️ 下载
+                        </a>
+                    </div>
+                    <div class="visualization-content">
+                        <img id="timelineImage" src="" alt="研究时间轴" class="visualization-image">
+                    </div>
+                </div>
+
+                <!-- 词云图 -->
+                <div class="card" id="wordcloudCard" style="display: none;">
+                    <div class="visualization-header">
+                        <h2>☁️ 关键词词云图</h2>
+                        <a id="wordcloudDownload" href="#" download class="download-btn-small">
+                            ⬇️ 下载
+                        </a>
+                    </div>
+                    <div class="visualization-content">
+                        <img id="wordcloudImage" src="" alt="关键词词云图" class="visualization-image">
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- 推荐关键词 -->
+            <section id="recommendedKeywordsSection" class="keywords-section" style="display: none;">
+                <div class="card">
+                    <h2>🔍 推荐继续搜索的关键词</h2>
+                    <p class="keywords-description">基于生成的综述，系统推荐以下关键词供您继续深入搜索：</p>
+                    <div id="recommendedKeywords" class="keywords-list"></div>
+                </div>
+            </section>
+
+            <!-- 相关论文 -->
+            <section class="papers-section">
+                <div class="card">
+                    <h2>📚 相关论文 <span id="papersCount" class="papers-count"></span></h2>
+                    <div id="papersList" class="papers-list-scrollable"></div>
+                </div>
+            </section>
+
+            <!-- 报告下载 -->
+            <section class="download-section">
+                <div class="card">
+                    <h2>📥 下载报告</h2>
+                    <div class="download-buttons" id="downloadButtons"></div>
+                </div>
+            </section>
+
+            <!-- 智能问答 -->
+            <section class="chat-section">
+                <div class="card">
+                    <h2>💬 智能问答</h2>
+                    <p class="chat-description">基于已分析的论文继续提问，支持联网搜索最新信息</p>
+                    <div class="chat-container">
+                        <div class="chat-messages" id="chatMessages"></div>
+                        <div class="chat-input-container">
+                            <div class="chat-options">
+                                <label>
+                                    <input type="checkbox" id="enableWebSearch" checked>
+                                    <span>启用联网搜索</span>
+                                </label>
+                            </div>
+                            <div class="chat-input-wrapper">
+                                <input type="text" id="chatInput" placeholder="输入您的问题..." class="chat-input">
+                                <button id="sendButton" class="chat-send-btn">发送</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>自动化研究现状收集与置信度评估系统 | 基于AI的智能研究分析工具</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/results.js') }}"></script>
+</body>
+</html>
+

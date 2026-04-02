@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>历史记录详情 - 自动化研究现状分析系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Markdown渲染库 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <h1>📊 历史记录详情</h1>
+            <p class="subtitle">研究主题：<span id="topicName"></span></p>
+        </header>
+
+        <!-- 导航栏 -->
+        <nav style="margin-bottom: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="/" class="btn btn-secondary">🏠 首页</a>
+            <a href="/papers" class="btn btn-secondary">📄 论文列表</a>
+            <a href="/history" class="btn btn-secondary">📚 历史记录</a>
+        </nav>
+
+        <!-- 主要内容区域 -->
+        <main class="main-content">
+            <!-- 加载提示 -->
+            <div id="loadingState" class="card">
+                <div style="text-align: center; padding: 40px;">
+                    <div style="font-size: 3em; margin-bottom: 16px;">⏳</div>
+                    <p>正在加载历史记录...</p>
+                </div>
+            </div>
+
+            <!-- 内容区域（初始隐藏） -->
+            <div id="contentArea" style="display: none;">
+                <!-- 关键指标 -->
+                <section class="metrics-section">
+                    <div class="card">
+                        <h2>📈 关键指标</h2>
+                        <div class="metrics-grid" id="metricsGrid"></div>
+                    </div>
+                </section>
+
+                <!-- 置信度诊断 -->
+                <section id="diagnosticSection" class="diagnostic-section" style="display: none;">
+                    <div class="card">
+                        <h2>🔍 置信度诊断</h2>
+                        <div id="diagnosticContent"></div>
+                    </div>
+                </section>
+
+                <!-- 综述报告 -->
+                <section class="summary-section">
+                    <div class="card">
+                        <h2>📝 综述报告</h2>
+                        <div id="summary" class="summary-content"></div>
+                    </div>
+                </section>
+
+                <!-- 关键发现 -->
+                <section class="findings-section">
+                    <div class="card">
+                        <h2>🔍 关键发现</h2>
+                        <ul id="keyFindings" class="findings-list"></ul>
+                    </div>
+                </section>
+
+                <!-- 研究趋势 -->
+                <section class="trends-section">
+                    <div class="card">
+                        <h2>📈 研究趋势</h2>
+                        <ul id="researchTrends" class="trends-list"></ul>
+                    </div>
+                </section>
+
+                <!-- 子话题推荐 -->
+                <section id="subtopicsSection" class="subtopics-section" style="display: none;">
+                    <div class="card">
+                        <h2>🔑 子话题推荐</h2>
+                        <div id="subtopicsContent"></div>
+                    </div>
+                </section>
+
+                <!-- 可视化图表 -->
+                <section class="visualization-section">
+                    <!-- 时间轴图 -->
+                    <div class="card" id="timelineCard" style="display: none;">
+                        <div class="visualization-header">
+                            <h2>📅 研究时间轴</h2>
+                            <a id="timelineDownload" href="#" download class="download-btn-small">
+                                ⬇️ 下载
+                            </a>
+                        </div>
+                        <div class="visualization-content">
+                            <img id="timelineImage" src="" alt="研究时间轴" class="visualization-image">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 相关论文 -->
+                <section class="papers-section">
+                    <div class="card">
+                        <h2>📚 相关论文</h2>
+                        <div id="papersList" class="papers-list"></div>
+                    </div>
+                </section>
+
+                <!-- 报告下载 -->
+                <section class="download-section">
+                    <div class="card">
+                        <h2>📥 下载报告</h2>
+                        <div class="download-buttons" id="downloadButtons"></div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 错误提示 -->
+            <div id="errorState" class="card" style="display: none;">
+                <div style="text-align: center; padding: 40px;">
+                    <div style="font-size: 3em; margin-bottom: 16px;">❌</div>
+                    <p id="errorMessage">加载失败</p>
+                    <button class="btn btn-primary" onclick="loadHistoryDetail()" style="margin-top: 16px;">重试</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>自动化研究现状收集与置信度评估系统 | 基于AI的智能研究分析工具</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/history_detail.js') }}"></script>
+</body>
+</html>
+
+
+
+
+
+
+

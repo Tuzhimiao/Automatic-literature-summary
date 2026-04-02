@@ -1,0 +1,53 @@
+# 系统配置文件（从 config.example.yaml 复制后填写密钥；勿将含真实密钥的此文件提交到 Git）
+
+# API配置（DeepSeek、Kimi、Qwen，按优先级使用第一个已配置的）
+deepseek:
+  api_key: "your-deepseek-api-key-here"
+  model: "deepseek-chat"
+  temperature: 0.3
+  max_tokens: 2000
+
+kimi:
+  api_key: "your-kimi-api-key-here"
+  model: "moonshot-v1-32k"
+  temperature: 0.3
+  max_tokens: 2000
+  base_url: "https://api.moonshot.cn/v1"
+
+paper_fetch:
+  arxiv:
+    max_results: 20
+    sort_by: "relevance"
+    title_only: false
+  ieee_xplore:
+    max_results: 20
+    fetch_fulltext: false
+  pubmed:
+    max_results: 20
+
+pubmed:
+  api_key: null
+  email: "your-email@example.com"
+  tool: "research_status_analyzer"
+
+paper_analysis:
+  batch_size: 1
+
+hallucination:
+  consistency:
+    similarity_threshold: 0.7
+    min_papers: 3
+  citation:
+    min_citation_count: 2
+  confidence:
+    min_confidence: 0.6
+
+report:
+  output_dir: "output"
+  markdown_template: "default"
+  pdf_template: "default"
+  include_visualizations: true
+
+logging:
+  level: "INFO"
+  file: "logs/system.log"
