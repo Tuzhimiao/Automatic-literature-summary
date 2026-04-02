@@ -75,7 +75,7 @@
   <img src="assets/原神_少女.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; max-width: 100%; object-fit: contain;" alt="原神_少女" />
 </p>
 
-> warning!
+> [!WARNING]
 > 我真求你了文献归根结底要**自己看**，不要盲目相信本项目！
 
 首先，这是一个sb工作。这个工作是我的课程作业，所以很粗糙，但是我自己和我朋友用大概是足够了的。
