@@ -9,7 +9,6 @@
   <img src="assets/拉电线佩丽卡.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="拉电线佩丽卡" />
   <img src="assets/拉电线汤汤.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="拉电线汤汤" />
   <img src="assets/拉电线庄方宜.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="拉电线庄方宜" />
-  </div>
 </div>
 
 <div align="center" style="max-width: 100%; margin: 0.5em 0;">
