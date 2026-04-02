@@ -4,11 +4,12 @@
 
 <div align="center" style="max-width: 100%; margin: 0.5em 0;">
   <div style="display: flex; flex-wrap: nowrap; gap: 2px; justify-content: center; align-items: center; width: 100%;">
-  <img src="assets/拉电线管理员.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="拉电线管理员" />
-  <img src="assets/拉电线洛茜.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="拉电线洛茜" />
-  <img src="assets/拉电线佩丽卡.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="拉电线佩丽卡" />
-  <img src="assets/拉电线汤汤.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="拉电线汤汤" />
-  <img src="assets/拉电线庄方宜.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="拉电线庄方宜" />
+  <img src="assets/拉电线管理员.gif" style="flex: 1 1 0; width: 100%; height: auto; object-fit: contain;" alt="拉电线管理员" />
+  <img src="assets/拉电线洛茜.gif" style="flex: 1 1 0; width: 100%; height: auto; object-fit: contain;" alt="拉电线洛茜" />
+  <img src="assets/拉电线佩丽卡.gif" style="flex: 1 1 0; width: 100%; height: auto; object-fit: contain;" alt="拉电线佩丽卡" />
+  <img src="assets/拉电线汤汤.gif" style="flex: 1 1 0; width: 100%; height: auto; object-fit: contain;" alt="拉电线汤汤" />
+  <img src="assets/拉电线庄方宜.gif" style="flex: 1 1 0; width: 100%; height: auto; object-fit: contain;" alt="拉电线庄方宜" />
+</div>
 </div>
 
 <div align="center" style="max-width: 100%; margin: 0.5em 0;">
