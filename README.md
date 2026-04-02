@@ -1,8 +1,5 @@
 # 自动化综述撰写&置信度评估系统
 
-[Python](https://www.python.org/)
-
-
 <table width="100%" cellpadding="0" cellspacing="0" style="table-layout: fixed; border-collapse: collapse; border-spacing: 0; margin: 0.5em 0;">
   <tr>
     <td align="center" width="20%" style="padding: 0;"><img src="assets/拉电线管理员.gif" width="100%" style="height: auto; width: 100%; display: block;" alt="拉电线管理员" /></td>
@@ -91,7 +88,7 @@
 > [!WARNING]
 > 我真求你了文献归根结底要**自己看**，不要盲目相信本项目！
 
-首先，这是一个sb工作。是我拿另一个工作随便改改的课程作业，所以很粗糙，但是我自己和我朋友用大概是足够了的。
+首先，这是一个sb工作。是我拿另一个工作改改的课程作业，所以很粗糙，但是我自己和我朋友用大概是足够了的。
 
 我个人认为有一些优点，但是可优化的点太多了，多到数不清，本人给到一个拉完了，而且it's not my professional field，真的懒得弄了。
 
