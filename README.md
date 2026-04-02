@@ -2,88 +2,88 @@
 
 [Python](https://www.python.org/)
 
-<div align="center" style="overflow-x: auto; max-width: 100%; margin: 0.5em 0;">
-  <div style="display: flex; flex-wrap: nowrap; gap: 2px; justify-content: center; align-items: center; width: max-content; margin-left: auto; margin-right: auto;">
-  <img src="assets/拉电线管理员.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="拉电线管理员" />
-  <img src="assets/拉电线洛茜.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="拉电线洛茜" />
-  <img src="assets/拉电线佩丽卡.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="拉电线佩丽卡" />
-  <img src="assets/拉电线汤汤.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="拉电线汤汤" />
-  <img src="assets/拉电线庄方宜.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="拉电线庄方宜" />
+<div align="center" style="max-width: 100%; margin: 0.5em 0;">
+  <div style="display: flex; flex-wrap: nowrap; gap: 2px; justify-content: center; align-items: center; width: 100%;">
+  <img src="assets/拉电线管理员.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="拉电线管理员" />
+  <img src="assets/拉电线洛茜.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="拉电线洛茜" />
+  <img src="assets/拉电线佩丽卡.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="拉电线佩丽卡" />
+  <img src="assets/拉电线汤汤.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="拉电线汤汤" />
+  <img src="assets/拉电线庄方宜.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="拉电线庄方宜" />
   </div>
 </div>
 
-<div align="center" style="overflow-x: auto; max-width: 100%; margin: 0.5em 0;">
-  <div style="display: flex; flex-wrap: nowrap; gap: 2px; justify-content: center; align-items: center; width: max-content; margin-left: auto; margin-right: auto;">
-  <img src="assets/薯ki_黄色奶龙.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="薯ki_黄色奶龙" />
-  <img src="assets/薯ki_麦当劳.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="薯ki_麦当劳" />
-  <img src="assets/辉夜_iroha.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="辉夜_iroha" />
-  <img src="assets/辉夜_kakuya.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="辉夜_kakuya" />
-  <img src="assets/终末地_艾尔黛拉.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="终末地_艾尔黛拉" />
-  <img src="assets/终末地_洁尔佩塔.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="终末地_洁尔佩塔" />
-  <img src="assets/终末地_伊冯.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="终末地_伊冯" />
-  <img src="assets/崩三_白希.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="崩三_白希" />
-  <img src="assets/崩三_黑希.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="崩三_黑希" />
-  <img src="assets/碧蓝航线_柴郡.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="碧蓝航线_柴郡" />
+<div align="center" style="max-width: 100%; margin: 0.5em 0;">
+  <div style="display: flex; flex-wrap: nowrap; gap: 2px; justify-content: center; align-items: center; width: 100%;">
+  <img src="assets/薯ki_黄色奶龙.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="薯ki_黄色奶龙" />
+  <img src="assets/薯ki_麦当劳.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="薯ki_麦当劳" />
+  <img src="assets/辉夜_iroha.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="辉夜_iroha" />
+  <img src="assets/辉夜_kakuya.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="辉夜_kakuya" />
+  <img src="assets/终末地_艾尔黛拉.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="终末地_艾尔黛拉" />
+  <img src="assets/终末地_洁尔佩塔.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="终末地_洁尔佩塔" />
+  <img src="assets/终末地_伊冯.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="终末地_伊冯" />
+  <img src="assets/崩三_白希.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="崩三_白希" />
+  <img src="assets/崩三_黑希.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="崩三_黑希" />
+  <img src="assets/碧蓝航线_柴郡.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="碧蓝航线_柴郡" />
   </div>
 </div>
 
-<div align="center" style="overflow-x: auto; max-width: 100%; margin: 0.5em 0;">
-  <div style="display: flex; flex-wrap: nowrap; gap: 2px; justify-content: center; align-items: center; width: max-content; margin-left: auto; margin-right: auto;">
-  <img src="assets/mygo_tomori.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="mygo_tomori" />
-  <img src="assets/mygo_anon.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="mygo_anon" />
-  <img src="assets/mygo_soyo.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="mygo_soyo" />
-  <img src="assets/mygo_rana.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="mygo_rana" />
-  <img src="assets/mygo_taki.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="mygo_taki" />
-  <img src="assets/bang_凑yuhina.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="bang_凑yuhina" />
-  <img src="assets/bang_高祖.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="bang_高祖" />
-  <img src="assets/GBC_486.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="GBC_486" />
-  <img src="assets/GBC_小孩姐.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="GBC_小孩姐" />
-  <img src="assets/老八.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="老八" />
+<div align="center" style="max-width: 100%; margin: 0.5em 0;">
+  <div style="display: flex; flex-wrap: nowrap; gap: 2px; justify-content: center; align-items: center; width: 100%;">
+  <img src="assets/mygo_tomori.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="mygo_tomori" />
+  <img src="assets/mygo_anon.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="mygo_anon" />
+  <img src="assets/mygo_soyo.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="mygo_soyo" />
+  <img src="assets/mygo_rana.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="mygo_rana" />
+  <img src="assets/mygo_taki.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="mygo_taki" />
+  <img src="assets/bang_凑yuhina.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="bang_凑yuhina" />
+  <img src="assets/bang_高祖.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="bang_高祖" />
+  <img src="assets/GBC_486.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="GBC_486" />
+  <img src="assets/GBC_小孩姐.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="GBC_小孩姐" />
+  <img src="assets/老八.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="老八" />
   </div>
 </div>
 
-<div align="center" style="overflow-x: auto; max-width: 100%; margin: 0.5em 0;">
-  <div style="display: flex; flex-wrap: nowrap; gap: 2px; justify-content: center; align-items: center; width: max-content; margin-left: auto; margin-right: auto;">
-  <img src="assets/mygo_saki常服.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="mygo_saki常服" />
-  <img src="assets/mygo_saki月之森.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="mygo_saki月之森" />
-  <img src="assets/mujica_saki.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="mujica_saki" />
-  <img src="assets/mujica_uika.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="mujica_uika" />
-  <img src="assets/mujica_umiri.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="mujica_umiri" />
-  <img src="assets/mujica_nyamu.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="mujica_nyamu" />
-  <img src="assets/mujica_mortis.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="mujica_mortis" />
-  <img src="assets/mujica_mutsumi.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="mujica_mutsumi" />
-  <img src="assets/方舟_祥子.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="方舟_祥子" />
-  <img src="assets/vtb_灌注塔菲喵.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="vtb_灌注塔菲喵" />
+<div align="center" style="max-width: 100%; margin: 0.5em 0;">
+  <div style="display: flex; flex-wrap: nowrap; gap: 2px; justify-content: center; align-items: center; width: 100%;">
+  <img src="assets/mygo_saki常服.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="mygo_saki常服" />
+  <img src="assets/mygo_saki月之森.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="mygo_saki月之森" />
+  <img src="assets/mujica_saki.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="mujica_saki" />
+  <img src="assets/mujica_uika.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="mujica_uika" />
+  <img src="assets/mujica_umiri.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="mujica_umiri" />
+  <img src="assets/mujica_nyamu.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="mujica_nyamu" />
+  <img src="assets/mujica_mortis.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="mujica_mortis" />
+  <img src="assets/mujica_mutsumi.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="mujica_mutsumi" />
+  <img src="assets/方舟_祥子.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="方舟_祥子" />
+  <img src="assets/vtb_灌注塔菲喵.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="vtb_灌注塔菲喵" />
   </div>
 </div>
 
-<div align="center" style="overflow-x: auto; max-width: 100%; margin: 0.5em 0;">
-  <div style="display: flex; flex-wrap: nowrap; gap: 2px; justify-content: center; align-items: center; width: max-content; margin-left: auto; margin-right: auto;">
-  <img src="assets/BA_爱丽丝.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="BA_爱丽丝" />
-  <img src="assets/BA_才羽绿.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="BA_才羽绿" />
-  <img src="assets/BA_才羽桃.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="BA_才羽桃" />
-  <img src="assets/方舟_阿米娅.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="方舟_阿米娅" />
-  <img src="assets/方舟_阿米娅骑士.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="方舟_阿米娅骑士" />
-  <img src="assets/方舟_能天使.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="方舟_能天使" />
-  <img src="assets/鸣潮_弗洛洛.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="鸣潮_弗洛洛" />
-  <img src="assets/崩铁_流萤.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="崩铁_流萤" />
-  <img src="assets/崩铁_小昔涟.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="崩铁_小昔涟" />
-  <img src="assets/崩铁_大昔涟.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="崩铁_大昔涟" />
+<div align="center" style="max-width: 100%; margin: 0.5em 0;">
+  <div style="display: flex; flex-wrap: nowrap; gap: 2px; justify-content: center; align-items: center; width: 100%;">
+  <img src="assets/BA_爱丽丝.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="BA_爱丽丝" />
+  <img src="assets/BA_才羽绿.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="BA_才羽绿" />
+  <img src="assets/BA_才羽桃.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="BA_才羽桃" />
+  <img src="assets/方舟_阿米娅.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="方舟_阿米娅" />
+  <img src="assets/方舟_阿米娅骑士.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="方舟_阿米娅骑士" />
+  <img src="assets/方舟_能天使.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="方舟_能天使" />
+  <img src="assets/鸣潮_弗洛洛.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="鸣潮_弗洛洛" />
+  <img src="assets/崩铁_流萤.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="崩铁_流萤" />
+  <img src="assets/崩铁_小昔涟.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="崩铁_小昔涟" />
+  <img src="assets/崩铁_大昔涟.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="崩铁_大昔涟" />
   </div>
 </div>
 
-<div align="center" style="overflow-x: auto; max-width: 100%; margin: 0.5em 0;">
-  <div style="display: flex; flex-wrap: nowrap; gap: 2px; justify-content: center; align-items: center; width: max-content; margin-left: auto; margin-right: auto;">
-  <img src="assets/孤独摇滚_虹夏妈妈.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="孤独摇滚_虹夏妈妈" />
-  <img src="assets/孤独摇滚_小波吉.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="孤独摇滚_小波吉" />
-  <img src="assets/vtb_超天酱.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="vtb_超天酱" />
-  <img src="assets/vtb_兰音.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="vtb_兰音" />
-  <img src="assets/vtb_月隐空夜.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="vtb_月隐空夜" />
-  <img src="assets/绝区零_妹妹.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="绝区零_妹妹" />
-  <img src="assets/原神_派蒙.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="原神_派蒙" />
-  <img src="assets/原神_甘雨.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="原神_甘雨" />
-  <img src="assets/原神_木偶.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="原神_木偶" />
-  <img src="assets/原神_少女.gif" style="height: 120px; width: auto; max-height: 120px; object-fit: contain; flex-shrink: 0;" alt="原神_少女" />
+<div align="center" style="max-width: 100%; margin: 0.5em 0;">
+  <div style="display: flex; flex-wrap: nowrap; gap: 2px; justify-content: center; align-items: center; width: 100%;">
+  <img src="assets/孤独摇滚_虹夏妈妈.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="孤独摇滚_虹夏妈妈" />
+  <img src="assets/孤独摇滚_小波吉.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="孤独摇滚_小波吉" />
+  <img src="assets/vtb_超天酱.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="vtb_超天酱" />
+  <img src="assets/vtb_兰音.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="vtb_兰音" />
+  <img src="assets/vtb_月隐空夜.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="vtb_月隐空夜" />
+  <img src="assets/绝区零_妹妹.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="绝区零_妹妹" />
+  <img src="assets/原神_派蒙.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="原神_派蒙" />
+  <img src="assets/原神_甘雨.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="原神_甘雨" />
+  <img src="assets/原神_木偶.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="原神_木偶" />
+  <img src="assets/原神_少女.gif" style="flex: 1 1 0; min-width: 0; max-height: 120px; width: 100%; height: auto; object-fit: contain;" alt="原神_少女" />
   </div>
 </div>
 
